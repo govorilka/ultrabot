@@ -68,6 +68,8 @@ void ImageRenderItem::fitToView()
 
     setWidth(pixmap_.width());
     setHeight(pixmap_.height());
+
+    update();
 }
 
 void ImageRenderItem::loadImage(const QString & filename)
