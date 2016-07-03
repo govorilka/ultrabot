@@ -3,7 +3,8 @@ QT += qml quick widgets
 CONFIG += c++11
 
 SOURCES += src/main.cpp \
-    src/ImageRenderItem.cpp
+    src/ImageRenderItem.cpp \
+    src/FileCursorItem.cpp
 
 RESOURCES += ./qml/qml.qrc
 
@@ -14,4 +15,5 @@ QML_IMPORT_PATH =
 include(deployment.pri)
 
 HEADERS += \
-    src/ImageRenderItem.h
+    src/ImageRenderItem.h \
+    src/FileCursorItem.h

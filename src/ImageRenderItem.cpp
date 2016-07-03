@@ -23,26 +23,13 @@ QUrl ImageRenderItem::source() const
 
 void ImageRenderItem::setSource(const QUrl & source)
 {
-    if (source_ == source)
+    if (source_ != source)
     {
-        return;
+        source_ = source;
+        loadImage(source_.toLocalFile());
+
+        emit sourceChanged(source_);
     }
-
-    source_ = source;
-
-    const auto filename = source_.toLocalFile();
-
-    path_ = QUrl::fromLocalFile(QFileInfo(filename).absolutePath());
-
-    loadImage(filename);
-
-    emit sourceChanged(source_);
-    emit pathChanged(path_);
-}
-
-QUrl ImageRenderItem::path() const
-{
-    return path_;
 }
 
 QSize ImageRenderItem::viewportSize() const

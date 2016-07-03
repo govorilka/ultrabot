@@ -18,7 +18,7 @@ ApplicationWindow {
             ToolButton {
                 text: "Open"
                 onClicked: {
-                    fileDialog.folder = render.path;
+                    fileDialog.folder = fileCursor.path;
                     fileDialog.open();
                 }
 
@@ -26,11 +26,15 @@ ApplicationWindow {
                     id: fileDialog
                     title: "Please choose a RAW photo file"
                     onAccepted: {
-                        render.source = fileDialog.fileUrls[0];
+                        fileCursor.source = fileDialog.fileUrls[0];
                     }
                 }
             }
         }
+    }
+
+    FileCursor {
+        id: fileCursor
     }
 
     Flickable {
@@ -42,6 +46,9 @@ ApplicationWindow {
 
         ImageRender {
             id: render
+
+            source: fileCursor.source
+
             viewportSize {
                 width: container.width
                 height: container.height
